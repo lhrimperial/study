@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="admin-thymeleaf:war">
+    <output-path>$PROJECT_DIR$/study-admin/admin-thymeleaf/target</output-path>
+    <root id="archive" name="admin-thymeleaf.war">
+      <element id="artifact" artifact-name="admin-thymeleaf:war exploded" />
+    </root>
+  </artifact>
+</component>

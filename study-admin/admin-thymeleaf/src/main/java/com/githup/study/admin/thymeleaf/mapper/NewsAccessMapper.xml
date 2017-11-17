@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.githup.study.admin.thymeleaf.mapper.NewsAccessMapper">
+    <resultMap id="BaseResultMap" type="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO">
+        <result column="id" property="id"/>
+        <result column="token" property="token"/>
+        <result column="name" property="name"/>
+        <result column="receive_type" property="receiveType"/>
+        <result column="push_type" property="pushType"/>
+        <result column="push_url" property="pushUrl"/>
+        <result column="is_open" property="opened"/>
+        <result column="converter_type" property="converterType"/>
+        <result column="priority" property="priority"/>
+        <result column="threshold" property="threshold"/>
+        <result column="modify_time" property="modifyTime"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+
+    <select id="findByPage" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO" resultMap="BaseResultMap">
+        select <include refid="all_column"/>
+        from tnt_bms_news_access
+        <where>
+            <include refid="params_sql"/>
+        </where>
+        order by id desc
+    </select>
+
+    <select id="totalCount" resultType="java.lang.Long" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO">
+        select count(*) from tnt_bms_news_access
+        <where>
+            <include refid="params_sql"/>
+        </where>
+    </select>
+
+    <select id="findByParam" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO" resultMap="BaseResultMap">
+        select <include refid="all_column"/>
+        from tnt_bms_news_access
+        <where>
+            <include refid="params_sql"/>
+        </where>
+    </select>
+
+    <select id="findById" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select <include refid="all_column"/>
+        from tnt_bms_news_access where id = #{id}
+    </select>
+
+    <sql id="all_column">
+        id,token,`name`,receive_type,push_type,push_url,is_open,converter_type,priority,threshold,modify_time,create_time
+    </sql>
+
+    <sql id="params_sql">
+        <if test="id != null and id != ''">
+            and id = #{id}
+        </if>
+        <if test="token != null and token != ''">
+            and token = #{token}
+        </if>
+        <if test="name != null and name != ''">
+            and `name` like CONCAT('%',#{name},'%')
+        </if>
+        <if test="receiveType != null and receiveType != ''">
+            and receive_type = #{receiveType}
+        </if>
+        <if test="pushType != null and pushType != ''">
+            and push_type = #{pushType}
+        </if>
+        <if test="pushUrl != null and pushUrl != ''">
+            and push_url = #{pushUrl}
+        </if>
+        <if test="opened != null and opened != ''">
+            and is_open = #{opened}
+        </if>
+        <if test="converterType != null and converterType != ''">
+            and converter_type = #{converterType}
+        </if>
+        <if test="priority != null and priority != ''">
+            and priority = #{priority}
+        </if>
+        <if test="threshold != null and threshold != ''">
+            and threshold = #{threshold}
+        </if>
+    </sql>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete from tnt_bms_news_access where id = #{id}
+    </delete>
+
+    <insert id="insert" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO">
+        insert into tnt_bms_news_access(token,`name`,receive_type,push_type,push_url,is_open,converter_type,priority,threshold,modify_time,create_time)
+        values (#{token},#{name},#{receiveType},#{pushType},#{pushUrl},#{opened},#{converterType},#{priority},#{threshold},#{modifyTime},#{createTime})
+    </insert>
+
+    <update id="update" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsAccessDO">
+        update tnt_bms_news_access
+        <set>
+            <if test="token != null and token != ''">
+                token = #{token},
+            </if>
+            <if test="name != null and name != ''">
+                `name` = #{name},
+            </if>
+            <if test="receiveType != null and receiveType != ''">
+                receive_type = #{receiveType},
+            </if>
+            <if test="pushType != null and pushType != ''">
+                push_type = #{pushType},
+            </if>
+            <if test="pushUrl != null and pushUrl != ''">
+                push_url = #{pushUrl},
+            </if>
+            <if test="opened != null and opened != ''">
+                is_open = #{opened},
+            </if>
+            <if test="converterType != null and converterType != ''">
+                converter_type = #{converterType},
+            </if>
+            <if test="priority != null and priority != ''">
+                priority = #{priority},
+            </if>
+            <if test="threshold != null and threshold != ''">
+                threshold = #{threshold},
+            </if>
+            <if test="modifyTime != null ">
+                modify_time = #{modifyTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>

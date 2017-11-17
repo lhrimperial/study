@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.githup.study.admin.thymeleaf.mapper.NewsSendSpeedMapper">
+    <resultMap id="BaseResultMap" type="com.githup.study.admin.thymeleaf.domain.po.NewsSendSpeedDO">
+        <id column="id" property="id"/>
+        <result column="msg_id" property="msgId"/>
+        <result column="msg_type" property="msgType"/>
+        <result column="reach_count" property="reachCount"/>
+        <result column="send_count" property="sendCount"/>
+        <result column="fail_count" property="failCount"/>
+    </resultMap>
+
+    <resultMap id="SpeedDetailMap" type="com.githup.study.admin.thymeleaf.domain.vo.NewsSpeedDetailVO">
+        <result column="msg_id" property="msgId"/>
+        <result column="msg_type" property="msgType"/>
+        <result column="status" property="status"/>
+        <result column="token" property="token"/>
+        <result column="name" property="name"/>
+        <result column="push_type" property="pushType"/>
+        <result column="push_url" property="pushUrl"/>
+    </resultMap>
+
+    <select id="totalSpeedDetailCount" parameterType="java.lang.String" resultType="java.lang.Long">
+        select count(*) FROM
+            tnt_bms_news_send_speed a
+        LEFT JOIN tnt_bms_msg_token b ON a.msg_id = b.msg_id
+        LEFT JOIN tnt_bms_news_access c ON b.token = c.token
+        <where>
+            <if test="msgId != null and msgId != ''">
+                and a.msg_id = #{msgId}
+            </if>
+            <if test="token != null and token != ''">
+                and c.token = #{token}
+            </if>
+        </where>
+    </select>
+
+    <select id="findSpeedDetailByPage" parameterType="java.lang.String" resultMap="SpeedDetailMap">
+        SELECT
+            a.msg_id,
+            a.msg_type,
+            b.`status`,
+            c.token,
+            c.`name`,
+            c.push_type,
+            c.push_url
+        FROM
+            tnt_bms_news_send_speed a
+        LEFT JOIN tnt_bms_msg_token b ON a.msg_id = b.msg_id
+        LEFT JOIN tnt_bms_news_access c ON b.token = c.token
+        <where>
+            <if test="msgId != null and msgId != ''">
+                and a.msg_id = #{msgId}
+            </if>
+            <if test="token != null and token != ''">
+                and c.token = #{token}
+            </if>
+        </where>
+    </select>
+
+    <sql id="all_column">
+        id,msg_id,msg_type,reach_count,send_count,fail_count
+    </sql>
+    <select id="totalCount" resultType="java.lang.Long">
+        select count(*)
+        from tnt_bms_news_send_speed
+        <where>
+            <if test="msgId != null and msgId != ''">
+                and msg_id = #{msgId}
+            </if>
+            <if test="msgType != null and msgType != ''">
+                and msg_type = ${msgType}
+            </if>
+        </where>
+    </select>
+    <select id="findByPage" resultMap="BaseResultMap">
+        select <include refid="all_column"/>
+        from tnt_bms_news_send_speed
+        <where>
+            <if test="msgId != null and msgId != ''">
+                and msg_id = #{msgId}
+            </if>
+            <if test="msgType != null and msgType != ''">
+                and msg_type = ${msgType}
+            </if>
+        </where>
+    </select>
+
+    <insert id="insert" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsSendSpeedDO">
+        insert into tnt_bms_news_send_speed(msg_id,msg_type,reach_count,send_count,fail_count)
+        values(msgId,msgType,reachCount,sendCount,failCount)
+    </insert>
+
+    <update id="update" parameterType="com.githup.study.admin.thymeleaf.domain.po.NewsSendSpeedDO">
+        update tnt_bms_news_send_speed
+        <set>
+            <if test="msgId != null ">
+                msg_id = #{msgId},
+            </if>
+            <if test="msgType != null ">
+                msg_type = #{msgType},
+            </if>
+            <if test="reachCount != null ">
+                reach_count = #{reachCount},
+            </if>
+            <if test="sendCount != null ">
+                send_count = #{sendCount},
+            </if>
+            <if test="failCount != null ">
+                fail_count = #{failCount},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="java.lang.Long">
+        delete from tnt_bms_news_send_speed where id = #{id}
+    </delete>
+</mapper>

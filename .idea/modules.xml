@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/study-admin/admin-thymeleaf/admin-thymeleaf.iml" filepath="$PROJECT_DIR$/study-admin/admin-thymeleaf/admin-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-admin/study-admin.iml" filepath="$PROJECT_DIR$/study-admin/study-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-thread/study-thread.iml" filepath="$PROJECT_DIR$/study-thread/study-thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-util/study-util.iml" filepath="$PROJECT_DIR$/study-util/study-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-thread/thread-base/thread-base.iml" filepath="$PROJECT_DIR$/study-thread/thread-base/thread-base.iml" />
+    </modules>
+  </component>
+</project>
