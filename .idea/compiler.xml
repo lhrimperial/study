@@ -12,12 +12,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="admin-thymeleaf" target="1.5" />
-      <module name="study" target="1.5" />
-      <module name="study-admin" target="1.5" />
-      <module name="study-thread" target="1.5" />
-      <module name="study-util" target="1.5" />
-      <module name="thread-base" target="1.5" />
+      <module name="admin-thymeleaf" target="1.7" />
+      <module name="study" target="1.7" />
+      <module name="study-admin" target="1.7" />
+      <module name="study-thread" target="1.7" />
+      <module name="study-util" target="1.7" />
+      <module name="thread-base" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

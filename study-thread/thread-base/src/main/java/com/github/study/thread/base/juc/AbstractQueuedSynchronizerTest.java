@@ -1,6 +1,7 @@
 package com.github.study.thread.base.juc;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author longhairen
@@ -10,5 +11,6 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 public class AbstractQueuedSynchronizerTest {
     public static void main(String[] args) {
         AbstractQueuedSynchronizer aqs = null;
+        ReentrantLock lock = null;
     }
 }
