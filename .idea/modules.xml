@@ -3,10 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/study-admin/admin-thymeleaf/admin-thymeleaf.iml" filepath="$PROJECT_DIR$/study-admin/admin-thymeleaf/admin-thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-dubbo/dubbo-source/dubbo-source.iml" filepath="$PROJECT_DIR$/study-dubbo/dubbo-source/dubbo-source.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-rocketmq/rocketmq-base/rocketmq-base.iml" filepath="$PROJECT_DIR$/study-rocketmq/rocketmq-base/rocketmq-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/study.iml" filepath="$PROJECT_DIR$/study.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-activemq/study-activemq.iml" filepath="$PROJECT_DIR$/study-activemq/study-activemq.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-admin/study-admin.iml" filepath="$PROJECT_DIR$/study-admin/study-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-dubbo/study-dubbo.iml" filepath="$PROJECT_DIR$/study-dubbo/study-dubbo.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-rocketmq/study-rocketmq.iml" filepath="$PROJECT_DIR$/study-rocketmq/study-rocketmq.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-thread/study-thread.iml" filepath="$PROJECT_DIR$/study-thread/study-thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/study-transaction/study-transaction.iml" filepath="$PROJECT_DIR$/study-transaction/study-transaction.iml" />

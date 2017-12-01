@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="admin-thymeleaf" />
+        <module name="dubbo-source" />
         <module name="rocketmq-base" />
         <module name="study-util" />
         <module name="thread-base" />
@@ -14,6 +15,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="admin-thymeleaf" target="1.7" />
+      <module name="dubbo-source" target="1.7" />
       <module name="rocketmq-base" target="1.7" />
       <module name="rocketmq-consumer" target="1.7" />
       <module name="rocketmq-provider" target="1.7" />
@@ -21,6 +23,7 @@
       <module name="study" target="1.7" />
       <module name="study-activemq" target="1.7" />
       <module name="study-admin" target="1.7" />
+      <module name="study-dubbo" target="1.7" />
       <module name="study-rocketmq" target="1.7" />
       <module name="study-thread" target="1.7" />
       <module name="study-transaction" target="1.7" />

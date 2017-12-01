@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/study-admin/admin-thymeleaf" />
+    <file type="web" url="file://$PROJECT_DIR$/study-dubbo/dubbo-source" />
     <file type="web" url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-base" />
     <file type="web" url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-consumer" />
     <file type="web" url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-provider" />
