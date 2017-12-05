@@ -1,6 +1,6 @@
-package com.githup.study.dubbo.source.service.impl;
+package com.githup.study.dubbo.source.dynamic.service.impl;
 
-import com.githup.study.dubbo.source.service.IUserService;
+import com.githup.study.dubbo.source.dynamic.service.IUserService;
 
 /**
  * 实现

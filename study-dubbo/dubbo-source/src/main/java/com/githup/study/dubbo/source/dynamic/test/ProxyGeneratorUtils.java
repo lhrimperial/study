@@ -1,6 +1,6 @@
-package com.githup.study.dubbo.source.test;
+package com.githup.study.dubbo.source.dynamic.test;
 
-import com.githup.study.dubbo.source.service.impl.UserServiceImpl;
+import com.githup.study.dubbo.source.dynamic.service.impl.UserServiceImpl;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;

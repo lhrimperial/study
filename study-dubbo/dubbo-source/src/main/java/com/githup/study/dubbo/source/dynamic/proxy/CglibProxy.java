@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.source.proxy;
+package com.githup.study.dubbo.source.dynamic.proxy;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

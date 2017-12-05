@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.source.service.impl;
+package com.githup.study.dubbo.source.dynamic.service.impl;
 
 /**
  * @author longhr

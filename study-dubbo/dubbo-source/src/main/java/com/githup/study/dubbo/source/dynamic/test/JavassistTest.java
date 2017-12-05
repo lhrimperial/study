@@ -1,7 +1,8 @@
-package com.githup.study.dubbo.source.test;
+package com.githup.study.dubbo.source.dynamic.test;
 
-import com.githup.study.dubbo.source.proxy.JavassistProxyFactory;
-import com.githup.study.dubbo.source.service.impl.UserNointerfaceService;
+import com.githup.study.dubbo.source.dynamic.proxy.JavassistProxyFactory;
+import com.githup.study.dubbo.source.dynamic.proxy.JavassistProxyFactory02;
+import com.githup.study.dubbo.source.dynamic.service.impl.UserNointerfaceService;
 
 /**
  * @author longhr
@@ -16,7 +17,11 @@ public class JavassistTest {
         proxyFactory.setTarget(service);
         UserNointerfaceService proxy = proxyFactory.getProxy();
         proxy.sayHello();
-        Class clazz = null;
-        ClassLoader classLoader = null;
+
+
+        System.out.println("*******************方式二*******************");
+        JavassistProxyFactory02 jpf02 = new JavassistProxyFactory02();
+        UserNointerfaceService a2 = (UserNointerfaceService) jpf02.getProxy(UserNointerfaceService.class);
+        a2.sayHello();
     }
 }

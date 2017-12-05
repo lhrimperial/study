@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.source.proxy;
+package com.githup.study.dubbo.source.dynamic.proxy;
 
 import javassist.util.proxy.MethodHandler;
 import javassist.util.proxy.ProxyFactory;
@@ -6,24 +6,21 @@ import javassist.util.proxy.ProxyFactory;
 import java.lang.reflect.Method;
 
 /**
- * @author longhr
- * @version 2017/12/1 0001
- * 使用工厂创建动态代理
- */
-public class JavassistProxyFactory<T> {
-    private T target;
-
-    public void setTarget(T target) {
-        this.target = target;
-    }
-
-    public T getProxy() throws InstantiationException, IllegalAccessException {
+ * @author longhairen
+ * @create 2017-12-03 8:57
+ * @description
+ * 这种方式不需要事先创建要代理的对象
+ **/
+public class JavassistProxyFactory02 {
+    /*
+     * 要代理的对象的class
+     * */
+    @SuppressWarnings("deprecation")
+    public Object getProxy(Class clazz) throws InstantiationException, IllegalAccessException {
         // 代理工厂
         ProxyFactory proxyFactory = new ProxyFactory();
-        //设置需要实现的子类接口
-//        proxyFactory.setInterfaces(new Class[]{});
         // 设置需要创建子类的父类
-        proxyFactory.setSuperclass(target.getClass());
+        proxyFactory.setSuperclass(clazz);
         /*
          * 定义一个拦截器。在调用目标方法时，Javassist会回调MethodHandler接口方法拦截，
          * 来实现你自己的代理逻辑，
@@ -45,21 +42,17 @@ public class JavassistProxyFactory<T> {
             public Object invoke(Object self, Method thismethod, Method proceed, Object[] args) throws Throwable {
                 System.out.println("--------------------------------");
                 System.out.println(self.getClass());
-                //class com.githup.study.dubbo.source.service.impl.UserNointerfaceService_$$_javassist_0
-                System.out.println("要调用的方法名："+thismethod.getName());
-                System.out.println(proceed.getName());
-                System.out.println("开启事务-------");
+                //class com.javassist.demo.A_$$_javassist_0
+                System.out.println("代理类对方法的代理引用:"+thismethod.getName());
+                System.out.println("开启事务 -------");
 
                 Object result = proceed.invoke(self, args);
-                //下面的代码效果与上面的相同
-                //不过需要传入一个目标对象
-                //Object result = thismethod.invoke(target,args);
 
-                System.out.println("提交事务-------");
+                System.out.println("提交事务 -------");
                 return result;
             }
         });
         // 通过字节码技术动态创建子类实例
-        return (T) proxyFactory.createClass().newInstance();
+        return  proxyFactory.createClass().newInstance();
     }
 }

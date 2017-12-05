@@ -1,8 +1,8 @@
-package com.githup.study.dubbo.source.test;
+package com.githup.study.dubbo.source.dynamic.test;
 
-import com.githup.study.dubbo.source.proxy.CglibProxy;
-import com.githup.study.dubbo.source.service.IUserService;
-import com.githup.study.dubbo.source.service.impl.UserServiceImpl;
+import com.githup.study.dubbo.source.dynamic.proxy.CglibProxy;
+import com.githup.study.dubbo.source.dynamic.service.IUserService;
+import com.githup.study.dubbo.source.dynamic.service.impl.UserServiceImpl;
 import net.sf.cglib.proxy.Enhancer;
 
 /**

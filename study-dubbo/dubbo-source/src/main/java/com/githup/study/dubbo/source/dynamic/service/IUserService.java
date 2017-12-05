@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.source.service;
+package com.githup.study.dubbo.source.dynamic.service;
 
 /**
  * 定义接口

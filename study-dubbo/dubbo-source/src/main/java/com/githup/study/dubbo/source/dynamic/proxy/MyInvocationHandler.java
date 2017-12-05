@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.source.proxy;
+package com.githup.study.dubbo.source.dynamic.proxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
