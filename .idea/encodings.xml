@@ -4,11 +4,11 @@
     <file url="file://$PROJECT_DIR$/study-activemq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-admin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-admin/admin-thymeleaf" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/study-netty" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/study-netty/netty-nio" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/study-netty/netty-weba" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-rocketmq" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-base" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-consumer" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-provider" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-shared" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-thread" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-thread/thread-base" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/study-transaction" charset="UTF-8" />

@@ -1,15 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>study-dubbo</artifactId>
+        <artifactId>study-netty</artifactId>
         <groupId>com.github.study</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.study</groupId>
-    <artifactId>dubbo-source</artifactId>
+    <artifactId>netty-nio</artifactId>
     <packaging>war</packaging>
-    <name>dubbo-source Maven Webapp</name>
+    <name>netty-nio Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
@@ -18,21 +18,8 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>dubbo</artifactId>
-        </dependency>
-
     </dependencies>
     <build>
-        <finalName>dubbo-source</finalName>
+        <finalName>netty-nio</finalName>
     </build>
 </project>
