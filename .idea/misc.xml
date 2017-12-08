@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/study-admin/admin-thymeleaf" />
     <file type="web" url="file://$PROJECT_DIR$/study-dubbo/dubbo-source" />
+    <file type="web" url="file://$PROJECT_DIR$/study-jpa" />
     <file type="web" url="file://$PROJECT_DIR$/study-netty/netty-nio" />
     <file type="web" url="file://$PROJECT_DIR$/study-netty/netty-weba" />
     <file type="web" url="file://$PROJECT_DIR$/study-rocketmq/rocketmq-base" />

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--数据源 master -->
+  <!--  <bean id="masterDataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.master.driverClassName}"/>
+        <property name="url" value="${jdbc.master.url}"/>
+        <property name="username" value="${jdbc.master.username}"/>
+        <property name="password" value="${jdbc.master.password}"/>
+    </bean>-->
+
+    <bean id="masterDataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
+         <property name="driverClassName" value="${mysql_jdbc.driverClassName}" />
+
+        <!-- 基本属性 url、user、password -->
+        <property name="url" value="${mysql_jdbc.url}"/>
+        <property name="username" value="${mysql_jdbc.username}" />
+        <property name="password" value="${mysql_jdbc.password}" />
+
+        <!-- 配置初始化大小、最小、最大 -->
+        <property name="initialSize" value="3" />
+        <property name="minIdle" value="3" />
+        <property name="maxActive" value="${mysql_jdbc.maxActive}" />
+
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${mysql_jdbc.maxWait}" />
+
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="60000" />
+
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="300000" />
+
+        <property name="validationQuery" value="SELECT 'x'" />
+        <property name="testWhileIdle" value="true" />
+        <property name="testOnBorrow" value="false" />
+        <property name="testOnReturn" value="false" />
+
+        <!-- 打开PSCache，并且指定每个连接上PSCache的大小 -->
+        <property name="poolPreparedStatements" value="true" />
+        <property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+
+        <!-- 配置监控统计拦截的filters -->
+        <property name="filters" value="stat,wall,log4j" />
+    </bean>
+
+    <!--SQL 日志框架 master-->
+  <!--  <bean id="masterDataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="dataSourceSpied" />
+    </bean>-->
+
+    <!--数据库事务管理-->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory" />
+        </property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+    <!-- 配置hibernate session工厂,需添加 spring-orm -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="masterDataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <!--<prop key="hibernate.current_session_context_class">thread</prop>-->
+            </props>
+        </property>
+
+        <!-- 自动扫描注解方式配置的hibernate类文件 -->
+        <property name="packagesToScan">
+            <list>
+                <value>com.githup.study.jpa.entity</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
