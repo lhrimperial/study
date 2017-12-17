@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--数据源 master -->
+    <bean id="masterDataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.master.driverClassName}"/>
+        <property name="url" value="${jdbc.master.url}"/>
+        <property name="username" value="${jdbc.master.username}"/>
+        <property name="password" value="${jdbc.master.password}"/>
+    </bean>
+
+    <!--数据源 slave -->
+    <bean id="slaveDataSourceSpied" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${jdbc.slave.driverClassName}"/>
+        <property name="url" value="${jdbc.slave.url}"/>
+        <property name="username" value="${jdbc.slave.username}"/>
+        <property name="password" value="${jdbc.slave.password}"/>
+    </bean>
+
+    <!--SQL 日志框架 master-->
+    <bean id="masterDataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="masterDataSourceSpied" />
+    </bean>
+    <!--SQL 日志框架 slave-->
+    <bean id="slaveDataSource" class="net.sf.log4jdbc.Log4jdbcProxyDataSource">
+        <constructor-arg ref="slaveDataSourceSpied" />
+    </bean>
+
+    <!--数据库事务管理-->
+    <bean id="transactionManagerMaster" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="masterDataSource"/>
+    </bean>
+    <bean id="transactionManagerSlave" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="slaveDataSource"/>
+    </bean>
+    <!--声明事务注解支持-->
+    <tx:annotation-driven transaction-manager="transactionManagerMaster"/>
+    <tx:annotation-driven transaction-manager="transactionManagerSlave"/>
+
+    <!--Mybatis 配置-->
+    <bean id="sqlSessionFactoryMaster" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:mybatis.xml"/>
+        <property name="dataSource" ref="masterDataSource"/>
+    </bean>
+    <bean id="sqlSessionFactorySlave" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--<property name="configLocation" value="classpath*:mybatis.xml"/>-->
+        <property name="dataSource" ref="slaveDataSource"/>
+    </bean>
+
+    <!-- MyBatis Mapper文件扫描 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.github.**.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryMaster"/>
+    </bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <property name="basePackage" value="com.github.**.mapper.slave"/>
+    <property name="sqlSessionFactoryBeanName" value="sqlSessionFactorySlave"/>
+</bean>
+
+</beans>

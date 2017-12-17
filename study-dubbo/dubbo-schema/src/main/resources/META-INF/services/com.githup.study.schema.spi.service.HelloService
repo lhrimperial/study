@@ -1,0 +1,2 @@
+com.githup.study.schema.spi.service.impl.DefaultHelloService
+com.githup.study.schema.spi.service.impl.CustomHelloService

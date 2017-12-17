@@ -1,0 +1,3 @@
+defaults=com.githup.study.dubbo.spi.extention.DefaultExtensionImpl
+other=com.githup.study.dubbo.spi.extention.OtherExtensionImpl
+adaptive=com.githup.study.dubbo.spi.extention.MyAdaptiveExtension

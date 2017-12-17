@@ -1,0 +1,2 @@
+com.githup.study.dubbo.spi.jdk.service.impl.DefaultHelloService
+com.githup.study.dubbo.spi.jdk.service.impl.CustomHelloService
