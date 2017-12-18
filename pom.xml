@@ -18,6 +18,7 @@
         <module>study-netty</module>
         <module>study-web</module>
         <module>study-sboot</module>
+        <module>study-algorithm</module>
     </modules>
 
     <build>
