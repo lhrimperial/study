@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-remoting</artifactId>
-            <version>3.2.3</version>
+            <version>3.2.5</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
@@ -29,9 +29,10 @@
         </dependency>
         <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
-            <artifactId>rocketmq-comm</artifactId>
-            <version>3.2.3</version>
+            <artifactId>rocketmq-common</artifactId>
+            <version>3.2.5</version>
         </dependency>
+
         <dependency>
             <groupId>commons-httpclient</groupId>
             <artifactId>commons-httpclient</artifactId>
@@ -55,7 +56,7 @@
         <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
-            <version>3.2.3</version>
+            <version>3.2.5</version>
         </dependency>
     </dependencies>
     <build>

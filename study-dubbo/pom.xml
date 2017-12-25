@@ -19,6 +19,7 @@
         <module>dubbo-provider</module>
         <module>dubbo-consumer</module>
         <module>dubbo-spi</module>
+        <module>dubbo-serialize</module>
     </modules>
 
     <dependencyManagement>

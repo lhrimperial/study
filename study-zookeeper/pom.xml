@@ -8,25 +8,27 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.study</groupId>
-    <artifactId>study-netty</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>netty-nio</module>
-        <module>netty-socket</module>
-        <module>netty-weba</module>
-        <module>netty-base</module>
-    </modules>
+    <artifactId>study-zookeeper</artifactId>
+    <packaging>jar</packaging>
+
+    <name>study-zookeeper</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.0.0.Final</version>
+            <groupId>org.apache.zookeeper</groupId>
+            <artifactId>zookeeper</artifactId>
+            <version>3.4.8</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
