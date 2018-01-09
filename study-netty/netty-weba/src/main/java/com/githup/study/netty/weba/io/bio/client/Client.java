@@ -18,9 +18,9 @@ public class Client {
 
     public static void main(String[] args) {
         ExecutorService service = Executors.newFixedThreadPool(5);
-        for (int i = 0; i < 10; i++) {
+//        for (int i = 0; i < 10; i++) {
             service.execute(new Sender());
-        }
+//        }
         service.shutdown();
     }
 
