@@ -13,7 +13,7 @@
     <dubbo:application name="dubbo-provider-application"/>
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="192.168.199.245:2181" check="false"/>
+    <dubbo:registry protocol="zookeeper" address="192.168.204.128:2181" check="false"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20883" threads="50"/>
