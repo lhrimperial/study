@@ -50,9 +50,7 @@ public class BinarySearchTree<T extends Comparable> extends BinaryTree{
             mRoot.setValue(data);
             return;
         }
-
         searchAndInsert(null, mRoot, data);     //根节点的父亲为 null
-
     }
 
     /**

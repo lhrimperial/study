@@ -11,12 +11,12 @@ public class SortAlgorithm {
     public static void main(String[] args) {
         int[] arr = {3,1,5,7,2,4,9,6,10,8};
         System.out.println(Arrays.toString(arr));
-//        insertSort(arr);
-//        System.out.println("插入排序："+Arrays.toString(arr));
-//        shellInsertSort(arr);
-//        System.out.println("希尔排序："+Arrays.toString(arr));
-//        bubbleSort(arr);
-//        System.out.println("冒泡排序："+Arrays.toString(arr));
+        insertSort(arr);
+        System.out.println("插入排序："+Arrays.toString(arr));
+        shellInsertSort(arr);
+        System.out.println("希尔排序："+Arrays.toString(arr));
+        bubbleSort(arr);
+        System.out.println("冒泡排序："+Arrays.toString(arr));
         quitSort(arr, 0, arr.length - 1);
         System.out.println("快速排序："+Arrays.toString(arr));
 
@@ -61,10 +61,11 @@ public class SortAlgorithm {
      * @param array
      */
     public static void bubbleSort(int[] array){
+        int temp;
         for (int i = 0, len = array.length; i < len; i++){
             for (int j = 0; j < len - i - 1; j++){
                 if (array[j+1] < array[j]){
-                    int temp = array[j+1];
+                    temp = array[j+1];
                     array[j+1] = array[j];
                     array[j] = temp;
                 }
@@ -79,10 +80,10 @@ public class SortAlgorithm {
      * @param array
      */
     public static void shellInsertSort(int[] array){
-        int dk = array.length / 2;
+        int j, curr, dk = array.length / 2;
         while(dk >= 1){
             for (int i = dk, len = array.length; i < len; i++){
-                int j, curr = array[i];
+                curr = array[i];
                 for (j = i - dk; j >= 0 && curr < array[j]; j = j - dk){
                     array[j + dk] = array[j];
                 }
@@ -99,12 +100,14 @@ public class SortAlgorithm {
      * @param array
      */
     public static void insertSort(int[] array){
+        int indx, curr;
         for (int i = 1, len = array.length; i < len; i++){
-            int indx, curr = array[i];
+            curr = array[i];
             for (indx = i -1; indx >= 0 && curr < array[indx]; indx--){
                 array[indx+1] = array[indx];
             }
             array[indx+1] = curr;
         }
     }
+
 }
