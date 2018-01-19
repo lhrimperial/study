@@ -1,5 +1,6 @@
 package com.githup.study.netty.weba.base.server;
 
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
@@ -19,7 +20,7 @@ public class HelloServerHandler extends SimpleChannelInboundHandler<String> {
         System.out.println(ctx.channel().remoteAddress() + " Say : " + msg);
 
         // 返回客户端消息 - 我已经接收到了你的消息
-        ctx.writeAndFlush("Received your message !\n");
+        ChannelFuture channelFuture = ctx.writeAndFlush("Received your message !\n");
     }
 
     /*
