@@ -1,4 +1,4 @@
-package com.githup.study.dubbo.provider.service;
+package com.githup.study.dubbo.provider.service.impl;
 
 import com.github.study.service.IHelloService;
 

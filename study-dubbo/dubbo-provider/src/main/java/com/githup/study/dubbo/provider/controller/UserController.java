@@ -1,7 +1,8 @@
 package com.githup.study.dubbo.provider.controller;
 
 import com.github.study.domain.User;
-import com.github.study.service.IUserService;
+import com.githup.study.dubbo.provider.service.ITestService;
+import com.githup.study.dubbo.provider.service.IUserInfoServiceRef;
 import com.handy.demo.dubbo.schema.domain.People;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,14 +21,23 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Autowired
-    private IUserService userService;
+    public IUserInfoServiceRef userInfoServiceRef;
+
+    @Autowired
+    private ITestService testService;
 
     private People people;
 
     @ResponseBody
+    @RequestMapping("/say")
+    public String sayHello(){
+        return testService.sayHello();
+    }
+
+    @ResponseBody
     @RequestMapping("/find")
     public User findUser(){
-        return userService.findUser("");
+        return userInfoServiceRef.findUser();
     }
 
     @ResponseBody

@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>thread-base</module>
+        <module>thread-akka</module>
     </modules>
 
     <distributionManagement>
