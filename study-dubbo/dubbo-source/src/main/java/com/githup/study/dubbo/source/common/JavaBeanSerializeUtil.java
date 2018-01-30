@@ -30,6 +30,7 @@ import java.util.Map;
  * @author <a href="mailto:gang.lvg@taobao.com">kimi</a>
  */
 public final class JavaBeanSerializeUtil {
+/*
 
     private static final Logger logger = LoggerFactory.getLogger(JavaBeanSerializeUtil.class);
 
@@ -411,7 +412,8 @@ public final class JavaBeanSerializeUtil {
 
     private static final String REFERENCE_TYPE_SUFFIX = ";";
 
-    /**
+    */
+/**
      * 把 Class.forName 的返回值转换为 Class.
      *
      * @param name Class.getName()
@@ -419,7 +421,8 @@ public final class JavaBeanSerializeUtil {
      * @return Class
      *
      * @throws ClassNotFoundException Class.forName
-     */
+     *//*
+
     public static Class<?> name2Class(ClassLoader loader, String name) throws ClassNotFoundException {
         if (TYPES.containsKey(name)) {
             return TYPES.get(name);
@@ -459,5 +462,6 @@ public final class JavaBeanSerializeUtil {
 
     private JavaBeanSerializeUtil() {
     }
+*/
 
 }

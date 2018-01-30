@@ -7,12 +7,12 @@ package com.githup.study.dubbo.source.common;
 public class JavaBeanSerialzeTest {
 
     public static void main(String[] args){
-        User user = new User("275688","123456");
+       /* User user = new User("275688","123456");
         JavaBeanDescriptor descriptor = JavaBeanSerializeUtil.serialize(user);
 
         User user1 = (User) JavaBeanSerializeUtil.deserialize(descriptor);
         System.out.println(user1.getUserName());
-        System.out.println(user.getPassword());
+        System.out.println(user.getPassword());*/
     }
 
     public static class User {
