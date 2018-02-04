@@ -15,6 +15,9 @@ import java.util.Set;
  * @description
  **/
 public class NIOServer {
+    public static void main(String[] args) throws Exception{
+        startServer(1234);
+    }
 
     public static void startServer(int port) throws Exception{
         //打开服务端ServerSocketChannel
@@ -22,7 +25,8 @@ public class NIOServer {
         //设置为非阻塞
         serverSocketChannel.configureBlocking(false);
         //绑定一个端口
-        serverSocketChannel.bind(new InetSocketAddress(port));
+//        serverSocketChannel.bind(new InetSocketAddress(port));
+        serverSocketChannel.socket().bind(new InetSocketAddress(port));
 
         //打开select
         Selector selector = Selector.open();
@@ -39,6 +43,7 @@ public class NIOServer {
             Set<SelectionKey> selectionKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = selectionKeys.iterator();
             ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+
 
             while (iterator.hasNext()) {
                 SelectionKey selectionKey = iterator.next();

@@ -17,7 +17,7 @@ public class SimpleConsumer {
 
     public static void main(String[] args)  throws MQClientException {
         DefaultMQPullConsumer consumer = new DefaultMQPullConsumer("simple_comsumer_group");
-        consumer.setNamesrvAddr("192.168.204.128:9876");
+        consumer.setNamesrvAddr("192.168.142.128:9876");
         consumer.setInstanceName("SimpleConsumer");
         consumer.start();
 

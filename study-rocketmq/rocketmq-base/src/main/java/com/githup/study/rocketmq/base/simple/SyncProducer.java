@@ -14,7 +14,7 @@ public class SyncProducer {
                 DefaultMQProducer("simple_sync_producer_group");
         //Launch the instance.
         producer.setInstanceName("SyncProducer");
-        producer.setNamesrvAddr("192.168.204.128:9876");
+        producer.setNamesrvAddr("192.168.142.128:9876");
         producer.start();
         for (int i = 0; i < 100; i++) {
             //Create a message instance, specifying topic, tag and message body.

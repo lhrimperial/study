@@ -21,6 +21,7 @@
         <module>study-algorithm</module>
         <module>study-zookeeper</module>
         <module>study-logger</module>
+        <module>study-scloud</module>
     </modules>
 
     <build>

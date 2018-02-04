@@ -1,17 +1,12 @@
 package com.github.study.netty.base;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.sctp.nio.NioSctpServerChannel;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.codec.ByteToMessageDecoder;
-import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.EventExecutorGroup;
-
-import java.util.List;
 
 /**
  * @author longhairen
@@ -37,14 +32,9 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ChannelPipeline p = ch.pipeline();
-                            p.addLast(new ByteToMessageDecoder() {
-                                @Override
-                                protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> out) throws Exception {
-
-                                }
-                            });   // 解码处理器
-                            p.addLast(new LineBasedFrameDecoder(1024));   // 编码处理器
-                            p.addLast(threadPool, new ComputeWithSqlHandler());   // 附带SQL查询的计算
+//                            p.addLast(new DecoderHandler());   // 解码处理器
+//                            p.addLast(new EncoderHandler());   // 编码处理器
+//                            p.addLast(threadPool, new ComputeWithSqlHandler());   // 附带SQL查询的计算
                         }
                     });
             // 绑定到本地端口等待客户端连接

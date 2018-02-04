@@ -11,12 +11,12 @@ public class SortAlgorithm {
     public static void main(String[] args) {
         int[] arr = {3,1,5,7,2,4,9,6,10,8};
         System.out.println(Arrays.toString(arr));
-        insertSort(arr);
-        System.out.println("插入排序："+Arrays.toString(arr));
-        shellInsertSort(arr);
-        System.out.println("希尔排序："+Arrays.toString(arr));
-        bubbleSort(arr);
-        System.out.println("冒泡排序："+Arrays.toString(arr));
+//        insertSort(arr);
+//        System.out.println("插入排序："+Arrays.toString(arr));
+//        shellInsertSort(arr);
+//        System.out.println("希尔排序："+Arrays.toString(arr));
+//        bubbleSort(arr);
+//        System.out.println("冒泡排序："+Arrays.toString(arr));
         quitSort(arr, 0, arr.length - 1);
         System.out.println("快速排序："+Arrays.toString(arr));
 
@@ -33,12 +33,14 @@ public class SortAlgorithm {
     public static void quitSort(int[] array, int low, int high){
         if (low < high) {
             int mid = getMiddle(array, low, high);
-            quitSort(array, 0, mid - 1);
+            quitSort(array, low, mid - 1);
             quitSort(array, mid + 1, high);
         }
     }
 
     public static int getMiddle(int[] arr, int low, int high){
+        System.out.println("low="+low+" high="+high);
+        System.out.println(Arrays.toString(arr));
         int key = arr[low];
         while (low < high) {
             while(low < high && key <= arr[high]){
@@ -62,13 +64,21 @@ public class SortAlgorithm {
      */
     public static void bubbleSort(int[] array){
         int temp;
+        boolean swap;
         for (int i = 0, len = array.length; i < len; i++){
+            swap = false;
             for (int j = 0; j < len - i - 1; j++){
                 if (array[j+1] < array[j]){
                     temp = array[j+1];
                     array[j+1] = array[j];
                     array[j] = temp;
+                    swap = true;
                 }
+                System.out.println("i="+i+" j="+j);
+                System.out.println(Arrays.toString(array));
+            }
+            if (!swap) {
+                break;
             }
         }
     }
@@ -100,13 +110,13 @@ public class SortAlgorithm {
      * @param array
      */
     public static void insertSort(int[] array){
-        int indx, curr;
+        int index, curr;
         for (int i = 1, len = array.length; i < len; i++){
             curr = array[i];
-            for (indx = i -1; indx >= 0 && curr < array[indx]; indx--){
-                array[indx+1] = array[indx];
+            for (index = i -1; index >= 0 && curr < array[index]; index--){
+                array[index+1] = array[index];
             }
-            array[indx+1] = curr;
+            array[index+1] = curr;
         }
     }
 
