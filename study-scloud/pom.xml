@@ -7,11 +7,23 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.github.study</groupId>
     <artifactId>study-scloud</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>scloud-eurekaserver</module>
+        <module>scloud-service-provider</module>
+        <module>scloud-server-ribbon</module>
+    </modules>
 
-  <modules>
-      <module>scloud-server</module>
-      <module>scloud-client</module>
-  </modules>
+    <distributionManagement>
+        <site>
+            <id>website</id>
+            <url>scp://webhost.company.com/www/website</url>
+        </site>
+    </distributionManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 </project>
