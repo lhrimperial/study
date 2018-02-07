@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.githup.study.security.shiro.web.mapper.RoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.githup.study.security.shiro.web.domain.RolePO">
+        <result column="roleId" property="roleId"/>
+        <result column="roleName" property="roleName"/>
+        <result column="roleDesc" property="roleDesc"/>
+        <result column="permission" property="permission"/>
+    </resultMap>
+
+    <update id="update" parameterType="com.githup.study.security.shiro.web.domain.RolePO">
+        update t_role
+        <set>
+            <if test="roleName != null and roleName != ''">
+                roleName = #{roleName},
+            </if>
+            <if test="roleDesc != null and roleDesc != ''">
+                roleDesc = #{roleDesc},
+            </if>
+            <if test="permission != null and permission != ''">
+                permission = #{permission},
+            </if>
+        </set>
+        where roleId = #{roleId}
+    </update>
+
+</mapper>
