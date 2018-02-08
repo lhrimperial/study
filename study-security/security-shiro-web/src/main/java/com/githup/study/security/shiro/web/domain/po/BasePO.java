@@ -1,4 +1,4 @@
-package com.githup.study.security.shiro.web.domain;
+package com.githup.study.security.shiro.web.domain.po;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +10,7 @@ public class BasePO implements Serializable {
     private static final long serialVersionUID = 4518625607078232965L;
     private Integer id;
     private Date createTime;
-    private Date modifyime;
+    private Date modifyTime;
 
     public Integer getId() {
         return id;
@@ -28,11 +28,11 @@ public class BasePO implements Serializable {
         this.createTime = createTime;
     }
 
-    public Date getModifyime() {
-        return modifyime;
+    public Date getModifyTime() {
+        return modifyTime;
     }
 
-    public void setModifyime(Date modifyime) {
-        this.modifyime = modifyime;
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
     }
 }

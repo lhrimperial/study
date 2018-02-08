@@ -1,4 +1,4 @@
-package com.githup.study.security.shiro.web.domain;
+package com.githup.study.security.shiro.web.domain.po;
 
 /**
  *

@@ -1,7 +1,7 @@
 package com.githup.study;
 
 import com.githup.study.security.shiro.web.Application;
-import com.githup.study.security.shiro.web.domain.UserPO;
+import com.githup.study.security.shiro.web.domain.po.UserPO;
 import com.githup.study.security.shiro.web.mapper.UserMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;

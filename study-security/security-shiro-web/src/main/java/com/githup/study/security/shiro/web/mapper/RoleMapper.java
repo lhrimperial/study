@@ -1,6 +1,6 @@
 package com.githup.study.security.shiro.web.mapper;
 
-import com.githup.study.security.shiro.web.domain.RolePO;
+import com.githup.study.security.shiro.web.domain.po.RolePO;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -14,12 +14,12 @@ public interface RoleMapper {
 
     int update(RolePO rolePO);
 
-    @Select("select * from t_role where roleId = #{roleId}")
+    @Select("select * from t_role where id = #{roleId}")
     RolePO findById(Integer roleId);
 
-    @Insert("insert into t_role(roleId,roleName,roleDesc,permission) values(#{roleId},#{roleName},#{roleDesc},#{permission})")
+    @Insert("insert into t_role(role_name,role_desc) values(#{roleName},#{roleDesc})")
     int save(RolePO rolePO);
 
-    @Delete("delete from t_role where roleId = #{roleId}")
+    @Delete("delete from t_role where id = #{roleId}")
     int delete(Integer roleId);
 }

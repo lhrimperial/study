@@ -1,9 +1,7 @@
 package com.githup.study.security.shiro.web.realm;
 
-import com.githup.study.security.shiro.web.domain.PermsPO;
-import com.githup.study.security.shiro.web.domain.RolePO;
-import com.githup.study.security.shiro.web.domain.UserPO;
-import com.githup.study.security.shiro.web.service.IPermissionService;
+import com.githup.study.security.shiro.web.domain.po.RolePO;
+import com.githup.study.security.shiro.web.domain.po.UserPO;
 import com.githup.study.security.shiro.web.service.IUserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
@@ -25,8 +23,6 @@ public class ShiroRealm extends AuthorizingRealm {
 
     @Autowired
     private IUserService userService;
-    @Autowired
-    private IPermissionService permissionService;
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         logger.info("doGetAuthorizationInfo+"+principalCollection.toString());
@@ -34,7 +30,7 @@ public class ShiroRealm extends AuthorizingRealm {
 
 
         //把principals放session中 key=userId value=principals
-        SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(userPO.getUserId()),SecurityUtils.getSubject().getPrincipals());
+//        SecurityUtils.getSubject().getSession().setAttribute(String.valueOf(userPO.getUserId()),SecurityUtils.getSubject().getPrincipals());
 
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         //赋予角色
@@ -42,10 +38,10 @@ public class ShiroRealm extends AuthorizingRealm {
             info.addRole(userRole.getRoleName());
         }
         //赋予权限
-        for(PermsPO permission : permissionService.getByUserId(userPO.getUserId())){
-//            if(StringUtils.isNotBlank(permission.getPermCode()))
-            info.addStringPermission(permission.getPerms());
-        }
+//        for(PermsPO permission : permissionService.getByUserId(userPO.getUserId())){
+////            if(StringUtils.isNotBlank(permission.getPermCode()))
+//            info.addStringPermission(permission.getPerms());
+//        }
 
         //设置登录次数、时间
 //        userService.updateUserLogin(user);

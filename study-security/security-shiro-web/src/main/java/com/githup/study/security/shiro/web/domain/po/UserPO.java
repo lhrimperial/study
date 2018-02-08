@@ -1,4 +1,4 @@
-package com.githup.study.security.shiro.web.domain;
+package com.githup.study.security.shiro.web.domain.po;
 
 
 import java.util.Set;
@@ -8,7 +8,6 @@ import java.util.Set;
  */
 public class UserPO extends BasePO {
     private static final long serialVersionUID = 4566765341157616278L;
-    private Integer userId;
     private String userName;
     private String password;
     private String realName;
@@ -16,22 +15,6 @@ public class UserPO extends BasePO {
     private Integer state;
 
     private Set<RolePO> roles;
-
-    public Set<RolePO> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<RolePO> roles) {
-        this.roles = roles;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
 
     public String getUserName() {
         return userName;
@@ -73,15 +56,11 @@ public class UserPO extends BasePO {
         this.state = state;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", realName='" + realName + '\'' +
-                ", email='" + email + '\'' +
-                ", state=" + state +
-                '}';
+    public Set<RolePO> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<RolePO> roles) {
+        this.roles = roles;
     }
 }
