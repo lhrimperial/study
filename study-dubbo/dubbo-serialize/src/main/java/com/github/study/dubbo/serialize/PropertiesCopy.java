@@ -5,6 +5,7 @@ import com.github.study.dubbo.serialize.domain.User;
 import com.github.study.dubbo.serialize.serializeutil.JavaSerializer;
 import com.github.study.dubbo.serialize.serializeutil.ProtostuffUtil;
 import com.github.study.dubbo.serialize.serializeutil.Serializer;
+import org.springframework.beans.BeanUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,34 @@ public class PropertiesCopy {
         System.out.println(System.currentTimeMillis() - startTime);
         System.out.println(hello);
 
-        System.out.println("*********************************");
+        System.out.println("************* beanUtils *******************");
+        startTime = System.currentTimeMillis();
+        Hello he = new Hello();
+        BeanUtils.copyProperties(u, he);
+        System.out.println(System.currentTimeMillis() - startTime);
+
+        System.out.println("************* getter setter *******************");
+        startTime = System.currentTimeMillis();
+        Hello h = new Hello();
+
+        int len = u.getFriends().size();
+        List<Hello> list = new ArrayList<>(len);
+
+        h.setUserName(u.getUserName());
+        h.setPassWord(u.getPassWord());
+        h.setUserInfo(u.getUserInfo());
+        h.setFriends(list);
+        Hello hh = null;
+        for (User us : u.getFriends()) {
+            hh = new Hello();
+            hh.setUserName(us.getUserName());
+            hh.setPassWord(us.getPassWord());
+            hh.setUserInfo(us.getUserInfo());
+            list.add(hh);
+        }
+        System.out.println(System.currentTimeMillis() - startTime);
+
+        System.out.println("************** objectStream *******************");
 
         startTime = System.currentTimeMillis();
         Serializer serializer = new JavaSerializer();
