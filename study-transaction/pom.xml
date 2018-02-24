@@ -10,6 +10,9 @@
     <groupId>com.github.study</groupId>
     <artifactId>study-transaction</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>transaction-jpa</module>
+    </modules>
 
     <distributionManagement>
         <site>

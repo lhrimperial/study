@@ -13,7 +13,7 @@
     <dubbo:application name="dubbo-provider-application"/>
 
     <!-- 使用zookeeper注册中心暴露服务地址 -->
-    <dubbo:registry protocol="zookeeper" address="10.200.6.197:2181" check="false"/>
+    <dubbo:registry protocol="zookeeper" address="10.200.4.74:2181" check="false"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20883" threads="50"/>
@@ -26,7 +26,9 @@
     <!-- 默认超时时间2分钟，重试次数0次 -->
     <dubbo:provider timeout="120000" retries="0" delay="50"/>
 
-    <bean id="userService" class="com.githup.study.dubbo.consumer.service.UserService"/>
-    <dubbo:service ref="userService" interface="com.github.study.service.IUserService"/>
+    <!--<bean id="userService" class="com.githup.study.dubbo.consumer.service.UserService"/>-->
+    <!--<dubbo:service ref="userService" interface="com.github.study.service.IUserService"/>-->
+
+    <dubbo:reference id="tntCodeGoodsRemoteService" interface="com.lvmama.tnt.export.code.api.service.ITntCodeGoodsRemoteService" group="export"/>
 
 </beans>

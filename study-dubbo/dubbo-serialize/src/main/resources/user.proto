@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "com.github.study.dubbo.serialize.protobuf";
+option java_outer_classname = "UserFactory";
+
+message User{
+     string userName = 1;
+     string passWord = 2;
+     string userInfo = 3;
+     repeated User friends = 4;
+}
