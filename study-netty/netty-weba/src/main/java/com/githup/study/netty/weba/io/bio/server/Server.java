@@ -16,7 +16,8 @@ public class Server {
             serverSocket = new ServerSocket(PORT);
             System.out.println("服务器端启动了....");
             //进行阻塞
-            Socket socket = serverSocket.accept();
+            Socket socket = null;
+//            socket = serverSocket.accept();
             //启动一个线程来处理客户端请求
             //new Thread(new ServerHandler(socket)).start();
 
