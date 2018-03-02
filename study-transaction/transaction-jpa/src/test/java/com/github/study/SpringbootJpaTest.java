@@ -1,11 +1,11 @@
 package com.github.study;
 
 
-import com.githup.study.security.shiro.web.Application;
-import com.githup.study.security.shiro.web.dao.RoleRepository;
-import com.githup.study.security.shiro.web.dao.UserRepository;
-import com.githup.study.security.shiro.web.domain.Role;
-import com.githup.study.security.shiro.web.domain.User;
+import com.github.study.transaction.jpa.Application;
+import com.github.study.transaction.jpa.dao.RoleRepository;
+import com.github.study.transaction.jpa.dao.UserRepository;
+import com.github.study.transaction.jpa.domain.Role;
+import com.github.study.transaction.jpa.domain.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

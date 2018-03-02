@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>sboot-base</module>
+        <module>sboot-vue</module>
     </modules>
 
     <properties>
