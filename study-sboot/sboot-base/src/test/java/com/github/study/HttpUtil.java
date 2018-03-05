@@ -10,7 +10,7 @@ import java.net.URL;
  *
  */
 public class HttpUtil {
-    private static Logger logger = Logger.getLogger(com.caiwei.framework.util.http.HttpUtil.class);
+    private static Logger logger = Logger.getLogger(HttpUtil.class);
 
     public HttpUtil() {
     }

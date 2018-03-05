@@ -1,8 +1,6 @@
 package com.github.study;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.caiwei.framework.util.http.HttpUtil;
 
 import java.io.IOException;
 import java.text.MessageFormat;
