@@ -9,7 +9,7 @@
 
     <groupId>com.github.study</groupId>
     <artifactId>study-zookeeper</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>study-zookeeper</name>
     <url>http://maven.apache.org</url>
