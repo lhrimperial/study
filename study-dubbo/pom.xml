@@ -22,7 +22,7 @@
         <module>dubbo-serialize</module>
     </modules>
 
-    <dependencyManagement>
+<!--    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.caiwei.framework</groupId>
@@ -32,7 +32,7 @@
                 <type>pom</type>
             </dependency>
         </dependencies>
-    </dependencyManagement>
+    </dependencyManagement>-->
 
     <dependencies>
         <dependency>
