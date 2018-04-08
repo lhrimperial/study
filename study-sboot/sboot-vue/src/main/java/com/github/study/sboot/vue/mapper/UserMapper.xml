@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.study.sboot.vue.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.github.study.sboot.vue.domain.User">
+        <result column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="password" property="password"/>
+        <result column="mobile_no" property="mobileNo"/>
+        <result column="email" property="email"/>
+    </resultMap>
+
+    <select id="findUsers" resultMap="BaseResultMap">
+        select * from t_user
+    </select>
+
+    <update id="update" parameterType="com.github.study.sboot.vue.domain.User">
+        update t_user
+        <set>
+            <if test="userName != null and userName != ''">
+                user_name = #{userName},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="mobileNo != null and mobileNo != ''">
+                mobile_no = #{mobileNo},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+        </set>
+        <where>
+            user_id = #{userId}
+        </where>
+    </update>
+</mapper>
