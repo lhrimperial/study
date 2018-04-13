@@ -13,6 +13,7 @@
     <modules>
         <module>security-shiro-web</module>
         <module>security-shiro-uri</module>
+        <module>security-shiro-base</module>
     </modules>
 
     <distributionManagement>
