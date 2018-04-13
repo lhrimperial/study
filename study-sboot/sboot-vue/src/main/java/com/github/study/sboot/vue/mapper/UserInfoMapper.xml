@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+        "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.study.sboot.vue.mapper.UserInfoMapper">
+    <resultMap id="UserInfoWithRoleMap" type="com.github.study.sboot.vue.domain.UserInfo">
+        <result column="u_uid" property="uid"/>
+        <result column="u_username" property="username"/>
+        <result column="u_name" property="name"/>
+        <result column="u_password" property="password"/>
+        <result column="u_salt" property="salt"/>
+        <result column="u_state" property="state"/>
+        <collection column="u_uid" property="roleList" ofType="com.github.study.sboot.vue.domain.SysRole">
+            <result column="r_id" property="id"/>
+            <result column="r_available" property="available"/>
+            <result column="r_description" property="description"/>
+            <result column="r_role" property="role"/>
+            <collection column="r_id" property="permissions" ofType="com.github.study.sboot.vue.domain.SysPermission">
+                <result column="p_id" property="id"/>
+                <result column="p_available" property="available"/>
+                <result column="p_name" property="name"/>
+                <result column="p_parent_id" property="parentId"/>
+                <result column="p_parent_ids" property="parentIds"/>
+                <result column="p_permission" property="permission"/>
+                <result column="p_resource_type" property="resourceType"/>
+                <result column="p_url" property="url"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <select id="findUserInfoByUserName" resultMap="UserInfoWithRoleMap">
+          select
+            u.uid as u_uid,
+            u.username as u_username,
+            u.name as u_name,
+            u.password as u_password,
+            u.salt as u_salt,
+            u.state as u_state,
+            r.id as r_id,
+            r.available as r_available,
+            r.description as r_description,
+            r.role as r_role,
+            p.id as p_id,
+            p.available as p_available,
+            p.name as p_name,
+            p.parent_id as p_parent_id,
+            p.parent_ids as p_parent_ids,
+            p.permission as p_permission,
+            p.resource_type as p_resource_type,
+            p.url as p_url
+        from user_info u
+        left join sys_user_role ur on u.uid = ur.uid
+        left join sys_role r on r.id = ur.role_id
+        left join sys_role_permission rp on r.id = rp.role_id
+        left join sys_permission p on rp.permission_id = p.id
+        where u.username = #{name}
+    </select>
+
+</mapper>

@@ -16,12 +16,36 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <shiro.version>1.4.0</shiro.version>
+        <shiro-redis.version>2.4.2.1-RELEASE</shiro-redis.version>
     </properties>
 
     <dependencies>
         <dependency>
+            <groupId>com.github.framework</groupId>
+            <artifactId>framework-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.framework</groupId>
+            <artifactId>framework-starter-web</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>${shiro.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.crazycake</groupId>
+            <artifactId>shiro-redis</artifactId>
+            <version>${shiro-redis.version}</version>
         </dependency>
     </dependencies>
 </project>
