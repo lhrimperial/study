@@ -24,7 +24,7 @@ import java.util.Map;
  *
  */
 @Configuration
-public class DataSourceConfig {
+public class DataSourceConfigure {
 
     @Bean
     public IdGenerator getIdGenerator() {
