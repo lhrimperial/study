@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * @author longhairen
  * @create 2017/10/11 0011 上午 10:31
  */
-@Service
+//@Service
 public class NotesDateService implements INotesDateService {
 
     @Autowired
