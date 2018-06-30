@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.handy.demo.web.mapper.UserInfoMapper">
+<mapper namespace="com.githup.study.web.simple.mapper.UserInfoMapper">
 
     <resultMap id="BaseResultMap" type="com.githup.study.web.simple.domain.UserInfo">
         <id column="id" property="id" jdbcType="INTEGER"/>
@@ -38,7 +38,7 @@
         </where>
     </sql>
 
-    <select id="findUserInfo" resultType="com.githup.study.web.simple.domain.UserInfo" parameterType="int">
+    <select id="findUserInfo" resultMap="BaseResultMap" parameterType="int">
         SELECT
         <include refid="columns"/>
         FROM t_user_info t

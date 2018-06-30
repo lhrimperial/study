@@ -13,6 +13,7 @@
     <modules>
         <module>sboot-base</module>
         <module>sboot-vue</module>
+        <module>sboot-tomcat</module>
     </modules>
 
     <properties>
