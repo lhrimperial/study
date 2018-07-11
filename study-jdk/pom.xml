@@ -7,24 +7,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.study</groupId>
-    <artifactId>study-security</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>security-shiro-web</module>
-        <module>security-shiro-uri</module>
-        <module>security-java-oauth</module>
-        <module>security-shiro-base</module>
-    </modules>
+    <artifactId>study-jdk</artifactId>
+    <packaging>jar</packaging>
 
-    <distributionManagement>
-        <site>
-            <id>website</id>
-            <url>scp://webhost.company.com/www/website</url>
-        </site>
-    </distributionManagement>
+    <name>study-jdk</name>
+    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+    </dependencies>
 </project>
