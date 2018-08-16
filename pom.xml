@@ -23,7 +23,6 @@
         <module>study-logger</module>
         <module>study-scloud</module>
         <module>study-security</module>
-        <module>study-tomcat</module>
         <module>study-jdk</module>
     </modules>
 

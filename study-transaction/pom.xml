@@ -13,6 +13,8 @@
     <modules>
         <module>transaction-jpa</module>
         <module>transaction-sharding-jdbc</module>
+        <module>transaction-mybatis</module>
+        <module>transation-elasticsearch</module>
     </modules>
 
     <distributionManagement>

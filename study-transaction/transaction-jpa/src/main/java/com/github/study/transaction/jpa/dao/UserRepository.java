@@ -53,7 +53,7 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     void deleteByUserId(Long id);
 
     @Transactional(timeout = 10)
-    @Query("select u from User u where u.email = ?1")
+        @Query("select u from User u where u.email = ?1")
     User findByEmail(String email);
 
 
