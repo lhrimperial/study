@@ -12,7 +12,7 @@ import java.util.concurrent.*;
  * 2. 真正创建线程是在start()中，这里使用了本地调用，通过C代码初始化线程需要的系统资源。
  *    此时start()的这个线程处于就绪状态，当得到CPU的时间片后就会执行其中的run()方法。
  * 3. 线程从创建到最终的消亡，要经历若干个状态。
- *    一般来说，线程包括以下这几个状态：创建(new)、就绪(runnable)、运行(running)、阻塞(blocked)、time waiting、waiting、消亡（dead）。
+ *    一般来说，线程包括以下这几个状态：创建(new)、就绪(runnable)、运行(running)、阻塞(blocked)、等待（time waiting、waiting）、消亡（dead）。
  */
 public class NewThreadWays {
 
