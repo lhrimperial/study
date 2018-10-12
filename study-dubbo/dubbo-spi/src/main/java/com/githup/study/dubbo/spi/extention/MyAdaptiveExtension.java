@@ -8,8 +8,9 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
  * @create 2017-12-11 17:33
  * @description
  **/
-
+@Adaptive
 public class MyAdaptiveExtension implements MyInterface {
+
     @SuppressWarnings("rawtypes")
     @Override
     public String sayHello(String name, String type) {

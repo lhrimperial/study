@@ -9,6 +9,7 @@ import com.alibaba.dubbo.common.extension.SPI;
  **/
 @SPI("defaults")
 public interface MyInterface {
-    public String sayHello(String name, String type);
+
+    String sayHello(String name, String type);
 }
 
